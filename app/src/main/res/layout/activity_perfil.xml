@@ -1,0 +1,83 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context="com.robugos.advinci.gui.PerfilActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/button_nome"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingLeft="50dp"
+            android:gravity="center_vertical|left"
+            android:background="@drawable/button_main"
+            android:drawableLeft="@mipmap/ic_edit"
+            android:drawablePadding="30dp"
+            android:stateListAnimator="@null"
+            android:text="Editar nome"
+            android:textColor="@color/colorIcon"
+            android:textStyle="bold"
+            android:onClick="editarNome"
+            android:contentDescription="Ícone de lápis: editar nome" />
+
+        <Button
+            android:id="@+id/button_local"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingLeft="50dp"
+            android:gravity="center_vertical|left"
+            android:background="@drawable/button_main"
+            android:drawableLeft="@mipmap/ic_local"
+            android:drawablePadding="30dp"
+            android:stateListAnimator="@null"
+            android:text="Editar local"
+            android:textColor="@color/colorIcon"
+            android:textStyle="bold"
+            android:contentDescription="Ícone de GPS: editar local"/>
+
+        <Button
+            android:id="@+id/button_senha"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingLeft="50dp"
+            android:gravity="center_vertical|left"
+            android:background="@drawable/button_main"
+            android:drawableLeft="@mipmap/ic_lock"
+            android:drawablePadding="30dp"
+            android:stateListAnimator="@null"
+            android:text="Alterar senha"
+            android:textColor="@color/colorIcon"
+            android:textStyle="bold"
+            android:onClick="alterarSenha"
+            android:contentDescription="Ícone de cadeado: alterar senha"/>
+
+        <Button
+            android:id="@+id/button_interesses"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingLeft="50dp"
+            android:gravity="center_vertical|left"
+            android:background="@drawable/button_main"
+            android:drawableLeft="@mipmap/ic_love"
+            android:drawablePadding="30dp"
+            android:stateListAnimator="@null"
+            android:text="Editar interesses"
+            android:textColor="@color/colorIcon"
+            android:textStyle="bold"
+            android:onClick="editarInteresses"
+            android:contentDescription="Ícone de coração: editar interesses" />
+
+    </LinearLayout>
+</LinearLayout>
