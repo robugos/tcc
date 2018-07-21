@@ -1,0 +1,70 @@
+[20-Jul-2018 00:55:56 America/Chicago] PHP Fatal error:  Cannot use try without catch or finally in /home/robug851/public_html/tcc/api/event/functions.php on line 216
+[20-Jul-2018 00:58:04 America/Chicago] PHP Parse error:  syntax error, unexpected 'catch' (T_CATCH) in /home/robug851/public_html/tcc/api/event/functions.php on line 215
+[20-Jul-2018 00:59:00 America/Chicago] PHP Parse error:  syntax error, unexpected ''EVENT'' (T_CONSTANT_ENCAPSED_STRING), expecting '&' or variable (T_VARIABLE) in /home/robug851/public_html/tcc/api/event/functions.php on line 224
+[20-Jul-2018 00:59:20 America/Chicago] PHP Parse error:  syntax error, unexpected 'catch' (T_CATCH) in /home/robug851/public_html/tcc/api/event/functions.php on line 255
+[20-Jul-2018 00:59:41 America/Chicago] PHP Fatal error:  Cannot redeclare debug() (previously declared in /home/robug851/public_html/tcc/api/event/functions.php:9) in /home/robug851/public_html/tcc/api/user/functions.php on line 21
+[20-Jul-2018 01:00:09 America/Chicago] PHP Fatal error:  Cannot redeclare index() (previously declared in /home/robug851/public_html/tcc/api/event/functions.php:16) in /home/robug851/public_html/tcc/api/user/functions.php on line 32
+[20-Jul-2018 01:04:28 America/Chicago] PHP Fatal error:  Cannot redeclare index() (previously declared in /home/robug851/public_html/tcc/api/event/functions.php:16) in /home/robug851/public_html/tcc/api/user/functions.php on line 32
+[20-Jul-2018 01:04:47 America/Chicago] PHP Fatal error:  Cannot redeclare get_interest() (previously declared in /home/robug851/public_html/tcc/api/event/functions.php:16) in /home/robug851/public_html/tcc/api/user/functions.php on line 62
+[20-Jul-2018 01:06:04 America/Chicago] PHP Fatal error:  Call to a member function getAVGNote() on a non-object in /home/robug851/public_html/tcc/api/event/list.php on line 46
+[20-Jul-2018 01:10:37 America/Chicago] PHP Fatal error:  Call to undefined function getUserInterets() in /home/robug851/public_html/tcc/api/event/list.php on line 17
+[20-Jul-2018 01:11:07 America/Chicago] PHP Fatal error:  Call to undefined function getUserInterets() in /home/robug851/public_html/tcc/api/event/list.php on line 17
+[20-Jul-2018 01:11:12 America/Chicago] PHP Fatal error:  Call to undefined function getUserInterets() in /home/robug851/public_html/tcc/api/event/list.php on line 17
+[20-Jul-2018 01:11:20 America/Chicago] PHP Fatal error:  Call to undefined function getUserInterets() in /home/robug851/public_html/tcc/api/event/list.php on line 17
+[20-Jul-2018 01:12:01 America/Chicago] PHP Fatal error:  Call to undefined function getUserInterets() in /home/robug851/public_html/tcc/api/event/list.php on line 17
+[20-Jul-2018 01:12:14 America/Chicago] PHP Fatal error:  Call to undefined function getUserInterets() in /home/robug851/public_html/tcc/api/event/list.php on line 17
+[20-Jul-2018 01:23:07 America/Chicago] PHP Parse error:  syntax error, unexpected '$' in /home/robug851/public_html/tcc/api/event/functions.php on line 83
+[20-Jul-2018 01:23:21 America/Chicago] PHP Parse error:  syntax error, unexpected '}' in /home/robug851/public_html/tcc/api/event/functions.php on line 113
+[20-Jul-2018 01:23:22 America/Chicago] PHP Parse error:  syntax error, unexpected '}' in /home/robug851/public_html/tcc/api/event/functions.php on line 113
+[20-Jul-2018 01:23:38 America/Chicago] PHP Warning:  Missing argument 2 for getAVGNote(), called in /home/robug851/public_html/tcc/api/event/list.php on line 44 and defined in /home/robug851/public_html/tcc/api/event/functions.php on line 77
+[20-Jul-2018 01:23:38 America/Chicago] PHP Warning:  Missing argument 2 for getAVGNote(), called in /home/robug851/public_html/tcc/api/event/list.php on line 44 and defined in /home/robug851/public_html/tcc/api/event/functions.php on line 77
+[20-Jul-2018 01:23:38 America/Chicago] PHP Warning:  Missing argument 2 for getAVGNote(), called in /home/robug851/public_html/tcc/api/event/list.php on line 44 and defined in /home/robug851/public_html/tcc/api/event/functions.php on line 77
+[20-Jul-2018 01:23:38 America/Chicago] PHP Warning:  Missing argument 2 for getAVGNote(), called in /home/robug851/public_html/tcc/api/event/list.php on line 44 and defined in /home/robug851/public_html/tcc/api/event/functions.php on line 77
+[20-Jul-2018 01:23:38 America/Chicago] PHP Warning:  Missing argument 2 for getAVGNote(), called in /home/robug851/public_html/tcc/api/event/list.php on line 44 and defined in /home/robug851/public_html/tcc/api/event/functions.php on line 77
+[20-Jul-2018 01:23:38 America/Chicago] PHP Warning:  Missing argument 2 for getAVGNote(), called in /home/robug851/public_html/tcc/api/event/list.php on line 44 and defined in /home/robug851/public_html/tcc/api/event/functions.php on line 77
+[20-Jul-2018 01:23:38 America/Chicago] PHP Warning:  Missing argument 2 for getAVGNote(), called in /home/robug851/public_html/tcc/api/event/list.php on line 44 and defined in /home/robug851/public_html/tcc/api/event/functions.php on line 77
+[20-Jul-2018 01:23:38 America/Chicago] PHP Warning:  Missing argument 2 for getAVGNote(), called in /home/robug851/public_html/tcc/api/event/list.php on line 44 and defined in /home/robug851/public_html/tcc/api/event/functions.php on line 77
+[20-Jul-2018 01:23:38 America/Chicago] PHP Warning:  Missing argument 2 for getAVGNote(), called in /home/robug851/public_html/tcc/api/event/list.php on line 44 and defined in /home/robug851/public_html/tcc/api/event/functions.php on line 77
+[20-Jul-2018 01:23:38 America/Chicago] PHP Warning:  Missing argument 2 for getAVGNote(), called in /home/robug851/public_html/tcc/api/event/list.php on line 44 and defined in /home/robug851/public_html/tcc/api/event/functions.php on line 77
+[20-Jul-2018 01:23:38 America/Chicago] PHP Warning:  Missing argument 2 for getAVGNote(), called in /home/robug851/public_html/tcc/api/event/list.php on line 44 and defined in /home/robug851/public_html/tcc/api/event/functions.php on line 77
+[20-Jul-2018 01:23:38 America/Chicago] PHP Warning:  Missing argument 2 for getAVGNote(), called in /home/robug851/public_html/tcc/api/event/list.php on line 44 and defined in /home/robug851/public_html/tcc/api/event/functions.php on line 77
+[20-Jul-2018 01:25:44 America/Chicago] PHP Fatal error:  Call to undefined function getUserInterets() in /home/robug851/public_html/tcc/api/event/list.php on line 17
+[20-Jul-2018 01:26:06 America/Chicago] PHP Fatal error:  Call to undefined function getUserInterets() in /home/robug851/public_html/tcc/api/event/list.php on line 17
+[20-Jul-2018 01:26:15 America/Chicago] PHP Fatal error:  Call to undefined function getUserInterets() in /home/robug851/public_html/tcc/api/event/list.php on line 17
+[20-Jul-2018 01:27:54 America/Chicago] PHP Fatal error:  Call to undefined function getUserInterets() in /home/robug851/public_html/tcc/api/event/list.php on line 17
+[20-Jul-2018 01:31:04 America/Chicago] PHP Fatal error:  Call to undefined function getUserInterets() in /home/robug851/public_html/tcc/api/event/list.php on line 17
+[20-Jul-2018 05:08:17 America/Chicago] PHP Fatal error:  Call to undefined function getUserInterets() in /home/robug851/public_html/tcc/api/event/list.php on line 17
+[20-Jul-2018 05:08:23 America/Chicago] PHP Fatal error:  Call to undefined function getUserInterets() in /home/robug851/public_html/tcc/api/event/list.php on line 17
+[20-Jul-2018 08:37:29 America/Chicago] PHP Fatal error:  Call to undefined function getUserInterets() in /home/robug851/public_html/tcc/api/event/list.php on line 17
+[20-Jul-2018 11:19:58 America/Chicago] PHP Fatal error:  Call to undefined function getUserInterets() in /home/robug851/public_html/tcc/api/event/list.php on line 17
+[20-Jul-2018 11:29:00 America/Chicago] PHP Fatal error:  Call to undefined function getUserInterets() in /home/robug851/public_html/tcc/api/event/list.php on line 17
+[20-Jul-2018 11:30:32 America/Chicago] PHP Fatal error:  Cannot redeclare getEvents() (previously declared in /home/robug851/public_html/tcc/api/event/functions.php:14) in /home/robug851/public_html/tcc/api/user/functions.php on line 35
+[20-Jul-2018 19:16:05 America/Chicago] PHP Fatal error:  Cannot redeclare updateRating() (previously declared in /home/robug851/public_html/tcc/api/event/functions.php:140) in /home/robug851/public_html/tcc/api/user/functions.php on line 323
+[20-Jul-2018 19:16:06 America/Chicago] PHP Fatal error:  Cannot redeclare updateRating() (previously declared in /home/robug851/public_html/tcc/api/event/functions.php:140) in /home/robug851/public_html/tcc/api/user/functions.php on line 323
+[20-Jul-2018 20:09:37 America/Chicago] PHP Parse error:  syntax error, unexpected 'print_r' (T_STRING) in /home/robug851/public_html/tcc/api/event/functions.php on line 78
+[20-Jul-2018 20:33:49 America/Chicago] PHP Fatal error:  Call to a member function getEventById() on a non-object in /home/robug851/public_html/tcc/api/event/event.php on line 13
+[20-Jul-2018 20:37:57 America/Chicago] PHP Fatal error:  Call to a member function getEventById() on a non-object in /home/robug851/public_html/tcc/api/event/event.php on line 13
+[20-Jul-2018 20:38:46 America/Chicago] PHP Warning:  Illegal string offset 'id' in /home/robug851/public_html/tcc/api/event/event.php on line 18
+[20-Jul-2018 20:38:46 America/Chicago] PHP Warning:  Illegal string offset 'name' in /home/robug851/public_html/tcc/api/event/event.php on line 19
+[20-Jul-2018 20:38:46 America/Chicago] PHP Warning:  Illegal string offset 'place' in /home/robug851/public_html/tcc/api/event/event.php on line 20
+[20-Jul-2018 20:38:46 America/Chicago] PHP Warning:  Illegal string offset 'start_time' in /home/robug851/public_html/tcc/api/event/event.php on line 21
+[20-Jul-2018 20:38:46 America/Chicago] PHP Warning:  Illegal string offset 'description' in /home/robug851/public_html/tcc/api/event/event.php on line 22
+[20-Jul-2018 20:38:46 America/Chicago] PHP Warning:  Illegal string offset 'cover' in /home/robug851/public_html/tcc/api/event/event.php on line 23
+[20-Jul-2018 20:38:46 America/Chicago] PHP Warning:  Illegal string offset 'name' in /home/robug851/public_html/tcc/api/event/event.php on line 24
+[20-Jul-2018 20:38:46 America/Chicago] PHP Fatal error:  Call to a member function getAVGNote() on a non-object in /home/robug851/public_html/tcc/api/event/event.php on line 33
+[20-Jul-2018 20:39:20 America/Chicago] PHP Warning:  Illegal string offset 'id' in /home/robug851/public_html/tcc/api/event/event.php on line 18
+[20-Jul-2018 20:39:20 America/Chicago] PHP Warning:  Illegal string offset 'name' in /home/robug851/public_html/tcc/api/event/event.php on line 19
+[20-Jul-2018 20:39:20 America/Chicago] PHP Warning:  Illegal string offset 'place' in /home/robug851/public_html/tcc/api/event/event.php on line 20
+[20-Jul-2018 20:39:20 America/Chicago] PHP Warning:  Illegal string offset 'start_time' in /home/robug851/public_html/tcc/api/event/event.php on line 21
+[20-Jul-2018 20:39:20 America/Chicago] PHP Warning:  Illegal string offset 'description' in /home/robug851/public_html/tcc/api/event/event.php on line 22
+[20-Jul-2018 20:39:20 America/Chicago] PHP Warning:  Illegal string offset 'cover' in /home/robug851/public_html/tcc/api/event/event.php on line 23
+[20-Jul-2018 20:39:20 America/Chicago] PHP Warning:  Illegal string offset 'name' in /home/robug851/public_html/tcc/api/event/event.php on line 24
+[20-Jul-2018 20:39:20 America/Chicago] PHP Fatal error:  Call to a member function getAVGNote() on a non-object in /home/robug851/public_html/tcc/api/event/event.php on line 33
+[20-Jul-2018 20:39:49 America/Chicago] PHP Warning:  Illegal string offset 'ID' in /home/robug851/public_html/tcc/api/event/event.php on line 20
+[20-Jul-2018 20:39:49 America/Chicago] PHP Warning:  Illegal string offset 'NAME' in /home/robug851/public_html/tcc/api/event/event.php on line 21
+[20-Jul-2018 20:39:49 America/Chicago] PHP Warning:  Illegal string offset 'place' in /home/robug851/public_html/tcc/api/event/event.php on line 22
+[20-Jul-2018 20:39:49 America/Chicago] PHP Warning:  Illegal string offset 'start_time' in /home/robug851/public_html/tcc/api/event/event.php on line 23
+[20-Jul-2018 20:39:49 America/Chicago] PHP Warning:  Illegal string offset 'description' in /home/robug851/public_html/tcc/api/event/event.php on line 24
+[20-Jul-2018 20:39:49 America/Chicago] PHP Warning:  Illegal string offset 'cover' in /home/robug851/public_html/tcc/api/event/event.php on line 25
+[20-Jul-2018 20:39:49 America/Chicago] PHP Warning:  Illegal string offset 'name' in /home/robug851/public_html/tcc/api/event/event.php on line 26
+[20-Jul-2018 20:39:49 America/Chicago] PHP Fatal error:  Call to a member function getAVGNote() on a non-object in /home/robug851/public_html/tcc/api/event/event.php on line 35
