@@ -56,6 +56,6 @@ public class HistoricoActivity extends AppCompatActivity {
     }
 
     public void onBackPressed(){
-        moveTaskToBack(true);
+        finish();
     }
 }

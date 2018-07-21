@@ -4,7 +4,9 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -46,6 +48,7 @@ public class EventoActivity extends AppCompatActivity {
     private static String notauser;
     private SQLiteHandler db = new SQLiteHandler(this);
 
+    @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,6 +83,7 @@ public class EventoActivity extends AppCompatActivity {
                 showDialog();
 
                 StringRequest strReq = new StringRequest(Request.Method.POST, "http://robugos.com/tcc/api/event/update.php", new Response.Listener<String>() {
+                    @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
                     @Override
                     public void onResponse(String response) {
                         Log.d(TAG, "Update Response: " + response.toString());
@@ -139,10 +143,11 @@ public class EventoActivity extends AppCompatActivity {
     }
 
     public void onBackPressed(){
-        moveTaskToBack(true);
+        finish();
     }
 
     //Classe AsyncTask para pegar jSON chamando HTTP
+    @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
     private class GetEvento extends AsyncTask<Void, Void, Void> {
         @Override
         protected void onPreExecute(){
@@ -199,6 +204,7 @@ public class EventoActivity extends AppCompatActivity {
             }
             return null;
         }
+        @RequiresApi(api = Build.VERSION_CODES.DONUT)
         @Override
         protected  void onPostExecute(Void result){
             super.onPostExecute(result);

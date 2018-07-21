@@ -2,13 +2,14 @@ package com.robugos.tcc.gui;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,12 +37,12 @@ public class PerfilActivity extends AppCompatActivity {
     private SQLiteHandler db = new SQLiteHandler(this);
     private AlertDialog dialog;
 
-    ListView listView;
-    String[] values = new String[] { "Editar nome",
-            "Editar localização",
-            "Editar interesses",
-            "Alterar senha"
-    };
+    //ListView listView;
+    //String[] values = new String[] { "Editar nome",
+    //      "Editar localização",
+    //      "Editar interesses",
+    //      "Alterar senha"
+    //};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +58,7 @@ public class PerfilActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.DONUT)
     public void editarNome(View view){
         View mView = getLayoutInflater().inflate(R.layout.alertdialog_editar_nome, null);
         final TextView nomeDialog = (TextView) mView.findViewById(R.id.nomeUsuario);
@@ -74,6 +76,7 @@ public class PerfilActivity extends AppCompatActivity {
         dialog = mBuilder.create();
         dialog.show();
         mEditar.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
             @Override
             public void onClick(View v) {
                 updateNome(mEditar, usuario);
@@ -96,6 +99,7 @@ public class PerfilActivity extends AppCompatActivity {
         dialog = mBuilder.create();
         dialog.show();
         mAlterar.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
             @Override
             public void onClick(View v) {
                 changeSenha(mAlterar, usuario);
@@ -103,66 +107,70 @@ public class PerfilActivity extends AppCompatActivity {
         });
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
     public void updateNome(Button mEditar, final List<TextView> usuario) {
         if (!validate(mEditar, usuario, "nome")){
             onRegisterFailed(mEditar);
             return;
         }else {
-            String tag_string_req = "req_register";
 
-            dialog.dismiss();
-            pDialog.setMessage("Aguarde");
-            showDialog();
 
-            StringRequest strReq = new StringRequest(Request.Method.POST, "http://robugos.com/tcc/api/user/update.php", new Response.Listener<String>() {
-                @Override
-                public void onResponse(String response) {
-                    Log.d(TAG, "Update Response: " + response.toString());
-                    hideDialog();
-
-                    try {
-                        JSONObject jObj = new JSONObject(response);
-                        boolean error = jObj.getBoolean("error");
-                        if (!error) {
-                            db.updateUser(userId, usuario.get(0).getText().toString(), usuario.get(1).getText().toString());
-                            Toast.makeText(getApplicationContext(), "Nome de exibição editado", Toast.LENGTH_LONG).show();
-                        } else {
-                            dialog.show();
-                            String errorMsg = jObj.getString("error_msg");
-                            Toast.makeText(getApplicationContext(), errorMsg, Toast.LENGTH_LONG).show();
-                        }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-
-                }
-            }, new Response.ErrorListener() {
-
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    Log.e(TAG, "Registration Error: " + error.getMessage());
-                    Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
-                    hideDialog();
-                }
-            }) {
-
-                @Override
-                protected Map<String, String> getParams() {
-
-                    Map<String, String> params = new HashMap<String, String>();
-                    params.put("uid", userId);
-                    params.put("nome", usuario.get(0).getText().toString());
-                    params.put("sobrenome", usuario.get(1).getText().toString());
-                    return params;
-                }
-
-            };
-
-            AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
+//            String tag_string_req = "req_register";
+//
+//            dialog.dismiss();
+//            pDialog.setMessage("Aguarde");
+//            showDialog();
+//
+//            StringRequest strReq = new StringRequest(Request.Method.POST, "http://robugos.com/tcc/api/user/update.php", new Response.Listener<String>() {
+//                @Override
+//                public void onResponse(String response) {
+//                    Log.d(TAG, "Update Response: " + response.toString());
+//                    hideDialog();
+//
+//                    try {
+//                        JSONObject jObj = new JSONObject(response);
+//                        boolean error = jObj.getBoolean("error");
+//                        if (!error) {
+//                            db.updateUser(userId, usuario.get(0).getText().toString(), usuario.get(1).getText().toString());
+//                            Toast.makeText(getApplicationContext(), "Nome de exibição editado", Toast.LENGTH_LONG).show();
+//                        } else {
+//                            dialog.show();
+//                            String errorMsg = jObj.getString("error_msg");
+//                            Toast.makeText(getApplicationContext(), errorMsg, Toast.LENGTH_LONG).show();
+//                        }
+//                    } catch (JSONException e) {
+//                        e.printStackTrace();
+//                    }
+//
+//                }
+//            }, new Response.ErrorListener() {
+//
+//                @Override
+//                public void onErrorResponse(VolleyError error) {
+//                    Log.e(TAG, "Registration Error: " + error.getMessage());
+//                    Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+//                    hideDialog();
+//                }
+//            }) {
+//
+//                @Override
+//                protected Map<String, String> getParams() {
+//
+//                    Map<String, String> params = new HashMap<String, String>();
+//                    params.put("uid", userId);
+//                    params.put("nome", usuario.get(0).getText().toString());
+//                    params.put("sobrenome", usuario.get(1).getText().toString());
+//                    return params;
+//                }
+//
+//            };
+//
+//            AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
         }
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
     public void changeSenha(Button mAlterar, final List<TextView> usuario) {
         if (!validate(mAlterar, usuario, "senha")){
             onRegisterFailed(mAlterar);
@@ -223,6 +231,7 @@ public class PerfilActivity extends AppCompatActivity {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
     public boolean validate(Button registerButton, List<TextView> usuario, String tipo){
         boolean valid = true;
 
@@ -288,7 +297,8 @@ public class PerfilActivity extends AppCompatActivity {
     }
 
     public void onBackPressed(){
-        moveTaskToBack(true);
+        //moveTaskToBack(true);
+        finish();
     }
 
 

@@ -38,6 +38,6 @@ public class SplashScreen extends AppCompatActivity {
     }
 
     public void onBackPressed(){
-        moveTaskToBack(true);
+        finish();
     }
 }

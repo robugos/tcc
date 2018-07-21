@@ -2,7 +2,9 @@ package com.robugos.tcc.gui;
 
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -41,6 +43,7 @@ public class EditarInteressesActivity extends AppCompatActivity {
     private static String userId;
     private SQLiteHandler db = new SQLiteHandler(this);
 
+    @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +57,7 @@ public class EditarInteressesActivity extends AppCompatActivity {
     }
 
     //Classe AsyncTask para pegar jSON chamando HTTP
+    @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
     private class GetInteresses extends AsyncTask<Void, Void, Void> {
         @Override
         protected void onPreExecute(){
@@ -239,6 +243,6 @@ public class EditarInteressesActivity extends AppCompatActivity {
     }
 
     public void onBackPressed(){
-        moveTaskToBack(true);
+        finish();
     }
 }

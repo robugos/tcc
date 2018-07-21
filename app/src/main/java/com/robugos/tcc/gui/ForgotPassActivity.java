@@ -2,7 +2,9 @@ package com.robugos.tcc.gui;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.util.Patterns;
@@ -41,6 +43,7 @@ public class ForgotPassActivity extends AppCompatActivity {
         final Button recoverButton = (Button) findViewById(R.id.email_recover_button);
 
         recoverButton.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
             @Override
             public void onClick(View view) {
                 recuperar(recoverButton, emailText);
@@ -48,6 +51,7 @@ public class ForgotPassActivity extends AppCompatActivity {
         });
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
     public void recuperar(final Button recoverButton, TextView emailText){
         Log.d(TAG, "Recuperar");
 
@@ -125,6 +129,7 @@ public class ForgotPassActivity extends AppCompatActivity {
         loginButton.setEnabled(true);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
     public boolean validate(Button recoverButton, TextView emailText){
         boolean valid = true;
 
@@ -151,7 +156,7 @@ public class ForgotPassActivity extends AppCompatActivity {
     }
 
     public void onBackPressed(){
-        moveTaskToBack(true);
+        finish();
     }
 
 

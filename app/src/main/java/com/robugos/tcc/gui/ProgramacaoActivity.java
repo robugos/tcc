@@ -64,7 +64,7 @@ public class ProgramacaoActivity extends AppCompatActivity {
     }
 
     public void onBackPressed(){
-        moveTaskToBack(true);
+        finish();
     }
 
 
