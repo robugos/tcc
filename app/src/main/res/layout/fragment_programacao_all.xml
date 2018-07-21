@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context="com.robugos.advinci.gui.TabProgramacaoAll">
+    tools:context="com.robugos.tcc.gui.TabProgramacaoAll">
 
     <ListView
         android:id="@+id/listaEventos"

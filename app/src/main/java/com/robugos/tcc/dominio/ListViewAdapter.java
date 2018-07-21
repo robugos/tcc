@@ -67,7 +67,11 @@ public class ListViewAdapter extends BaseAdapter {
         nomeEvento.setText(data.get(position).get("nome"));
         localEvento.setText(data.get(position).get("local"));
         dataEvento.setText(data.get(position).get("data"));
-        ratingEvento.setRating(Float.parseFloat(data.get(position).get("nota")));
+        try {
+            ratingEvento.setRating(Float.parseFloat(data.get(position).get("nota")));
+        }catch (Exception e) {
+
+        }
         ratingEvento.setContentDescription(data.get(position).get("nome")+" avaliado em: "+data.get(position).get("nota")+" estrelas");
 
         return vi;

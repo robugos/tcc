@@ -3,17 +3,17 @@
     <!-- These settings headers are only used on tablets. -->
 
     <header
-        android:fragment="com.robugos.advinci.gui.InteressesActivity$GeneralPreferenceFragment"
+        android:fragment="com.robugos.tcc.gui.InteressesActivity$GeneralPreferenceFragment"
         android:icon="@drawable/ic_info_black_24dp"
         android:title="@string/pref_header_general" />
 
     <header
-        android:fragment="com.robugos.advinci.gui.InteressesActivity$NotificationPreferenceFragment"
+        android:fragment="com.robugos.tcc.gui.InteressesActivity$NotificationPreferenceFragment"
         android:icon="@drawable/ic_notifications_black_24dp"
         android:title="@string/pref_header_notifications" />
 
     <header
-        android:fragment="com.robugos.advinci.gui.InteressesActivity$DataSyncPreferenceFragment"
+        android:fragment="com.robugos.tcc.gui.InteressesActivity$DataSyncPreferenceFragment"
         android:icon="@drawable/ic_sync_black_24dp"
         android:title="@string/pref_header_data_sync" />
 

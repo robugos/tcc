@@ -150,6 +150,10 @@ public class ForgotPassActivity extends AppCompatActivity {
             pDialog.dismiss();
     }
 
+    public void onBackPressed(){
+        moveTaskToBack(true);
+    }
+
 
 }
 

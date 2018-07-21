@@ -193,6 +193,10 @@ public class CreateUserActivity extends AppCompatActivity {
             pDialog.dismiss();
     }
 
+    public void onBackPressed(){
+        moveTaskToBack(true);
+    }
+
      public void onRegisterFailed(Button registerButton){
         //Toast.makeText(getBaseContext(), "C")
         registerButton.setEnabled(true);

@@ -6,7 +6,7 @@
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:background="@color/colorPrimaryDark"
-    tools:context="com.robugos.advinci.gui.TabProgramacaoRec">
+    tools:context="com.robugos.tcc.gui.TabProgramacaoRec">
 
     <ListView
         android:id="@+id/listaEventos"

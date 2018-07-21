@@ -5,7 +5,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -38,7 +37,7 @@ public class EditarInteressesActivity extends AppCompatActivity {
     private CustomAdapter adapter;
     private String TAG = EditarInteressesActivity.class.getSimpleName();
     private ProgressDialog pDialog;
-    private static String url = "http://robugos.com/advinci/db/listainteresses.php?uid=";
+    private static String url = "http://robugos.com/tcc/api/user/interests.php?uid=";
     private static String userId;
     private SQLiteHandler db = new SQLiteHandler(this);
 
@@ -184,7 +183,7 @@ public class EditarInteressesActivity extends AppCompatActivity {
             pDialog.setMessage("Aguarde");
             showDialog();
 
-            StringRequest strReq = new StringRequest(Request.Method.POST, "http://robugos.com/advinci/db/update.php", new Response.Listener<String>() {
+            StringRequest strReq = new StringRequest(Request.Method.POST, "http://robugos.com/tcc/api/user/update.php", new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
                     Log.d(TAG, "Update Response: " + response.toString());
@@ -239,12 +238,7 @@ public class EditarInteressesActivity extends AppCompatActivity {
             pDialog.dismiss();
     }
 
-    public boolean onKeyDown(int keyCode, KeyEvent event)
-    {
-        if ((keyCode == KeyEvent.KEYCODE_BACK))
-        {
-            finish();
-        }
-        return super.onKeyDown(keyCode, event);
+    public void onBackPressed(){
+        moveTaskToBack(true);
     }
 }

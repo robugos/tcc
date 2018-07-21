@@ -54,4 +54,8 @@ public class HistoricoActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
+    public void onBackPressed(){
+        moveTaskToBack(true);
+    }
 }

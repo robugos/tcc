@@ -39,7 +39,7 @@ public class EventoActivity extends AppCompatActivity {
 
     private static final String TAG = "EventoActivity";
     private ProgressDialog pDialog;
-    private static String url = "http://robugos.com/advinci/db/evento.php";
+    private static String url = "http://robugos.com/tcc/api/event/event.php";
     private String id;
     private Evento evento;
     private static String userId;
@@ -79,7 +79,7 @@ public class EventoActivity extends AppCompatActivity {
                 pDialog.setMessage("Aguarde");
                 showDialog();
 
-                StringRequest strReq = new StringRequest(Request.Method.POST, "http://robugos.com/advinci/db/update.php", new Response.Listener<String>() {
+                StringRequest strReq = new StringRequest(Request.Method.POST, "http://robugos.com/tcc/api/event/update.php", new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         Log.d(TAG, "Update Response: " + response.toString());
@@ -136,6 +136,10 @@ public class EventoActivity extends AppCompatActivity {
     private void hideDialog() {
         if (pDialog.isShowing())
             pDialog.dismiss();
+    }
+
+    public void onBackPressed(){
+        moveTaskToBack(true);
     }
 
     //Classe AsyncTask para pegar jSON chamando HTTP
