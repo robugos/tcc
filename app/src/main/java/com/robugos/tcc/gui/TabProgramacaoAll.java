@@ -179,7 +179,7 @@ public class TabProgramacaoAll extends Fragment {
             super.onPostExecute(result);
             if (pDialog.isShowing())
                 pDialog.dismiss();
-            adapter = new ListViewAdapter(getActivity(), listaEventos);
+            adapter = new ListViewAdapter(getActivity(), listaEventos, 1);
             adapter.notifyDataSetChanged();
             lView.setAdapter(adapter);
             registerForContextMenu(lView);

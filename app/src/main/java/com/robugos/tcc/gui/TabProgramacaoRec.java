@@ -232,7 +232,7 @@ public class TabProgramacaoRec extends Fragment {
             if (pDialog.isShowing())
                 pDialog.dismiss();
             listaEventos = sortListByPeso(listaEventos);
-            adapter = new ListViewAdapter(getActivity(), listaEventos, true);
+            adapter = new ListViewAdapter(getActivity(), listaEventos, 0);
             adapter.notifyDataSetChanged();
             lView.setAdapter(adapter);
             registerForContextMenu(lView);

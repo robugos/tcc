@@ -12,6 +12,7 @@ import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -184,7 +185,11 @@ public class EventoActivity extends AppCompatActivity {
                             eve.getString("urlimg"),
                             eve.getString("adimg"),
                             eve.getString("nota"),
-                            eve.getString("tipo"));
+                            eve.getString("tipo"),
+                            eve.getString("iconad"),
+                            eve.getString("iconlse"),
+                            eve.getString("iconlibras"),
+                            eve.getString("iconmobi"));
                     evento = event;
                     System.out.println("EVENTO: " + event.getTipo());
                     System.out.println("EVENTO: " + evento.getTipo());
@@ -220,6 +225,36 @@ public class EventoActivity extends AppCompatActivity {
             if (pDialog.isShowing())
                 pDialog.dismiss();
             setTitle(evento.getNome());
+
+            ImageView iconAd = (ImageView) findViewById(R.id.iconAd);
+            ImageView iconLse = (ImageView) findViewById(R.id.iconLse);
+            ImageView iconLibras = (ImageView) findViewById(R.id.iconLibras);
+            ImageView iconMobi = (ImageView) findViewById(R.id.iconMobi);
+
+            if (evento.getIconad().equals("1")) {
+                iconAd.setContentDescription("Ícone de fone: possui áudio-descrição");
+            }else{
+                iconAd.setVisibility(View.INVISIBLE);
+            }
+
+            if (evento.getIconlse().equals("1")) {
+                iconLse.setContentDescription("Ícone CC: possui legenda para surdos ou closed capation");
+            }else{
+                iconLse.setVisibility(View.INVISIBLE);
+            }
+
+            if (evento.getIconlibras().equals("1")) {
+                iconLibras.setContentDescription("Ícone de mão: possui intérprete de LIBRAS");
+            }else{
+                iconLibras.setVisibility(View.INVISIBLE);
+            }
+
+            if (evento.getIconmobi().equals("1")) {
+                iconMobi.setContentDescription("Ícone de cadeira de rodas: possui acessibilidade arquitetônica");
+            }else{
+                iconMobi.setVisibility(View.INVISIBLE);
+            }
+
             TextView nomeEventoText = (TextView) findViewById(R.id.nomeEvento);
             ResizableImageView imagemEvento = (ResizableImageView) findViewById(R.id.imagemEvento);
             TextView localEventoText = (TextView) findViewById(R.id.localEvento);
@@ -237,7 +272,7 @@ public class EventoActivity extends AppCompatActivity {
             descricaoEventoText.loadData("<style>html,body{margin:0; color:#737373;}</style><div style=\"text-align: justify;\n\">"+evento.getDescricao()+"</div>", "text/html; charset=utf-8", "utf-8");
             //System.out.println(evento.getNota());
             notaEventoBar.setRating(Float.parseFloat(evento.getNota()));
-            notaEventoBar.setContentDescription(evento.getNome()+" avaliado em: "+evento.getNota()+" estrelas");
+            notaEventoBar.setContentDescription(evento.getNome()+" avaliado com: "+evento.getNota()+" estrelas");
             String url = evento.getUrlimg();
             imagemEvento.setContentDescription(evento.getAdimg());
             new ImageLoadTask(url, imagemEvento).execute();

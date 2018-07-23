@@ -28,7 +28,10 @@
     <string name="title_activity_historico">Histórico</string>
 
     <!-- Strings related to Settings -->
-
+    <string name="ad_iconAd">Possui áudio-descrição</string>
+    <string name="ad_iconLse">Possui legenda para surdos ou closed capation</string>
+    <string name="ad_iconLibras">Possui intérprete de LIBRAS</string>
+    <string name="ad_iconMobi">Possui acessibilidade arquitetônica</string>
     <!-- Example General settings -->
     <string name="pref_header_general">General</string>
 

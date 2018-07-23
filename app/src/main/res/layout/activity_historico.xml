@@ -2,26 +2,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context=".gui.HistoricoActivity">
+    tools:context="com.robugos.tcc.gui.HistoricoActivity">
 
-    <TextView
-        android:id="@+id/latitude"
+    <ListView
+        android:id="@+id/listaEventos"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/longitude"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/local"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Location" />
+        android:layout_height="match_parent"
+        android:paddingBottom="0dp"/>
 
 </LinearLayout>

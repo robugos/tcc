@@ -18,6 +18,11 @@ public class Evento implements Serializable {
     private String nota;
     private String tipo;
 
+    private String iconad;
+    private String iconlse;
+    private String iconlibras;
+    private String iconmobi;
+
 //    public Evento(String id, String nome, String local, String data, String descricao, String urlimg, String adimg, String nota){
 //        setId(id);
 //        setNome(nome);
@@ -28,6 +33,23 @@ public class Evento implements Serializable {
 //        setAdimg(adimg);
 //        setNota(nota);
 //    }
+
+    public Evento(  String id, String nome, String local, String data, String descricao, String urlimg, String adimg, String nota, String tipo,
+                    String iconad, String iconlse, String iconlibras, String iconmobi){
+        setId(id);
+        setNome(nome);
+        setLocal(local);
+        setData(data);
+        setDescricao(descricao);
+        setUrlimg(urlimg);
+        setAdimg(adimg);
+        setNota(nota);
+        setTipo(tipo);
+        setIconad(iconad);
+        setIconlse(iconlse);
+        setIconlibras(iconlibras);
+        setIconmobi(iconmobi);
+    }
 
     public Evento(String id, String nome, String local, String data, String descricao, String urlimg, String adimg, String nota, String tipo){
         setId(id);
@@ -139,6 +161,38 @@ public class Evento implements Serializable {
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+
+    public String getIconad() {
+        return iconad;
+    }
+
+    public void setIconad(String iconad) {
+        this.iconad = iconad;
+    }
+
+    public String getIconlse() {
+        return iconlse;
+    }
+
+    public void setIconlse(String iconlse) {
+        this.iconlse = iconlse;
+    }
+
+    public String getIconlibras() {
+        return iconlibras;
+    }
+
+    public void setIconlibras(String iconlibras) {
+        this.iconlibras = iconlibras;
+    }
+
+    public String getIconmobi() {
+        return iconmobi;
+    }
+
+    public void setIconmobi(String iconmobi) {
+        this.iconmobi = iconmobi;
     }
 
 }
