@@ -56,6 +56,10 @@ public class PerfilActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void editarLocal(View view) {
+        Toast.makeText(getApplicationContext(), "Ainda não é possível editar local", Toast.LENGTH_LONG).show();
+    }
+
 //    @RequiresApi(api = Build.VERSION_CODES.DONUT)
     public void editarNome(View view){
         View mView = getLayoutInflater().inflate(R.layout.alertdialog_editar_nome, null);

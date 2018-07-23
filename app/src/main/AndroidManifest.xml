@@ -82,8 +82,7 @@
         </activity>
         <activity
             android:name=".gui.SobreActivity"
-            android:label="@string/title_activity_sobre"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:label="@string/title_activity_sobre">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".gui.MainActivity" />

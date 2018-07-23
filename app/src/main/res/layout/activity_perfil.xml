@@ -43,6 +43,7 @@
             android:text="Editar local"
             android:textColor="@color/colorIcon"
             android:textStyle="bold"
+            android:onClick="editarLocal"
             android:contentDescription="Ícone de GPS: editar local"/>
 
         <Button

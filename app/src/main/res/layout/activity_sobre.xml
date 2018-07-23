@@ -1,33 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".gui.SobreActivity">
+    android:orientation="vertical"
+    tools:context=".gui.SobreActivity"
+    android:background="@color/colorPrimaryDark">
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="242dp"
+        android:layout_height="179dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:contentDescription="Logo do ADVinci"
+        app:srcCompat="@mipmap/ic_logo_splash" />
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-    </android.support.design.widget.AppBarLayout>
-
-    <include layout="@layout/content_sobre" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
+    <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        android:layout_weight="1"
+        android:text="Um Sistema de Recomendações de Eventos Culturais com Áudio-descrição"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent"/>
 
-</android.support.design.widget.CoordinatorLayout>
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_weight="1"
+        android:textAlignment="center"
+        android:textColor="@color/colorSecondaryText"
+        android:text="Este trabalho tem como principal objetivo o desenvolvimento de um sistema de recomendação, aqui representado por uma aplicação para smartphones com sistema operacional Android, capaz de atuar na recomendação de eventos culturais acessíveis com áudio-descrição." />
+
+</LinearLayout>
