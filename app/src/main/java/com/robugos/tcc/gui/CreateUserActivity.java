@@ -37,7 +37,8 @@ import java.util.Map;
 public class CreateUserActivity extends AppCompatActivity {
 
     private static final String TAG = "CreateUserActivity";
-    private static Usuario user;
+    private static Usuario userlogin;
+    private static LoginActivity login = new LoginActivity();
     private ProgressDialog pDialog;
     private SessionManager session;
     private SQLiteHandler db;
@@ -128,9 +129,10 @@ public class CreateUserActivity extends AppCompatActivity {
                             String sobrenome = user.getString("sobrenome");
                             String email = user.getString("email");
                             String criado_em = user.getString("criado_em");
+                            String ativo = user.getString("ativo");
 
                             // Inserting row in users table
-                            db.addUser(nome, sobrenome, email, uid, criado_em);
+                            db.addUser(nome, sobrenome, email, uid, criado_em, ativo);
 
                             Toast.makeText(getApplicationContext(), "Conta criada com sucesso.", Toast.LENGTH_LONG).show();
 
@@ -194,7 +196,7 @@ public class CreateUserActivity extends AppCompatActivity {
     }
 
     public void onBackPressed(){
-        moveTaskToBack(true);
+        finish();
     }
 
      public void onRegisterFailed(Button registerButton){

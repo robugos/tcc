@@ -129,8 +129,9 @@ public class LoginActivity extends AppCompatActivity {
                         JSONObject user = jObj.getJSONObject("usuario");
                         String nome = user.getString("nome");
                         String sobrenome = user.getString("sobrenome");
+                        String ativo = user.getString("ativo");
 
-                        db.updateUser(uid, nome, sobrenome);
+                        db.updateUser(uid, nome, sobrenome, ativo);
 
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intent);
@@ -197,8 +198,9 @@ public class LoginActivity extends AppCompatActivity {
                         String sobrenome = user.getString("sobrenome");
                         String email = user.getString("email");
                         String criado_em = user.getString("criado_em");
+                        String ativo = user.getString("ativo");
 
-                        db.addUser(nome, sobrenome, email, uid, criado_em);
+                        db.addUser(nome, sobrenome, email, uid, criado_em, ativo);
 
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intent);

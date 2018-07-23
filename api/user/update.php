@@ -60,6 +60,23 @@ if (isset($_POST['uid']) && isset($_POST['interesses'])) {
         echo json_encode($response);
     }
 
+} elseif (isset($_POST['uid']) && isset($_POST['ativo'])){
+
+    // receiving the post params
+    $uid = $_POST['uid'];
+    //$id = $db->getIdByUid($uid);
+    $ativo = $_POST['ativo'];
+
+    $update = updateActive('USER', $uid, $ativo);
+    if ($update) {
+        $response["error"] = FALSE;
+        echo json_encode($response);
+    } else {
+        $response["error"] = TRUE;
+        $response["error_msg"] = "Erro desconhecido no registro.";
+        echo json_encode($response);
+    }
+
 } elseif (isset($_POST['uid']) && isset($_POST['senha']) && isset($_POST['novasenha'])){
 
     // receiving the post params

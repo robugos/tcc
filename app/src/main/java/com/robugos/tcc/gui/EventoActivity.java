@@ -4,9 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -48,7 +46,7 @@ public class EventoActivity extends AppCompatActivity {
     private static String notauser;
     private SQLiteHandler db = new SQLiteHandler(this);
 
-    @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
+    //@RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,7 +81,7 @@ public class EventoActivity extends AppCompatActivity {
                 showDialog();
 
                 StringRequest strReq = new StringRequest(Request.Method.POST, "http://robugos.com/tcc/api/event/update.php", new Response.Listener<String>() {
-                    @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
+                    //@RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
                     @Override
                     public void onResponse(String response) {
                         Log.d(TAG, "Update Response: " + response.toString());
@@ -147,7 +145,7 @@ public class EventoActivity extends AppCompatActivity {
     }
 
     //Classe AsyncTask para pegar jSON chamando HTTP
-    @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
+    //@RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
     private class GetEvento extends AsyncTask<Void, Void, Void> {
         @Override
         protected void onPreExecute(){
@@ -177,8 +175,19 @@ public class EventoActivity extends AppCompatActivity {
                     String data = eve.getString("data");
                     data = (data.substring(8, 10))+"/"+(data.substring(5, 7))+
                             "/"+(data.substring(0, 4))+" às "+(data.substring(11, 13))+"h"+(data.substring(14, 16));
-                    Evento event = new Evento(eve.getString("id"), eve.getString("nome"), eve.getString("local"), data, eve.getString("descricao"), eve.getString("urlimg"), eve.getString("adimg"), eve.getString("nota"));
+                    Evento event = new Evento(
+                            eve.getString("id"),
+                            eve.getString("nome"),
+                            eve.getString("local"),
+                            data,
+                            eve.getString("descricao"),
+                            eve.getString("urlimg"),
+                            eve.getString("adimg"),
+                            eve.getString("nota"),
+                            eve.getString("tipo"));
                     evento = event;
+                    System.out.println("EVENTO: " + event.getTipo());
+                    System.out.println("EVENTO: " + evento.getTipo());
 
                 } catch (final JSONException e){
                     Log.e(TAG, "Erro do JSON parsing: " + e.getMessage());
@@ -204,7 +213,7 @@ public class EventoActivity extends AppCompatActivity {
             }
             return null;
         }
-        @RequiresApi(api = Build.VERSION_CODES.DONUT)
+        //@RequiresApi(api = Build.VERSION_CODES.DONUT)
         @Override
         protected  void onPostExecute(Void result){
             super.onPostExecute(result);
@@ -214,6 +223,7 @@ public class EventoActivity extends AppCompatActivity {
             TextView nomeEventoText = (TextView) findViewById(R.id.nomeEvento);
             ResizableImageView imagemEvento = (ResizableImageView) findViewById(R.id.imagemEvento);
             TextView localEventoText = (TextView) findViewById(R.id.localEvento);
+//            TextView tipoEventoText = (TextView) findViewById(R.id.tipoEvento);
             TextView dataEventoText = (TextView) findViewById(R.id.dataEvento);
             WebView descricaoEventoText = (WebView) findViewById(R.id.descricaoEvento);
             WebSettings settings = descricaoEventoText.getSettings();
@@ -221,7 +231,8 @@ public class EventoActivity extends AppCompatActivity {
             descricaoEventoText.setBackgroundColor(Color.TRANSPARENT);
             RatingBar notaEventoBar = (RatingBar) findViewById(R.id.ratingEvento);
             nomeEventoText.setText(evento.getNome());
-            localEventoText.setText(evento.getLocal());
+            localEventoText.setText(evento.getTipo() + " em " +evento.getLocal());
+//            tipoEventoText.setText(evento.getTipo());
             dataEventoText.setText(evento.getData());
             descricaoEventoText.loadData("<style>html,body{margin:0; color:#737373;}</style><div style=\"text-align: justify;\n\">"+evento.getDescricao()+"</div>", "text/html; charset=utf-8", "utf-8");
             //System.out.println(evento.getNota());

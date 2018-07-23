@@ -66,7 +66,7 @@
             android:onClick="verHistorico"
             android:contentDescription="Ícone de lista: histórico"/>
 
-        <Button
+        <!--<Button
             android:id="@+id/button_config"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -82,7 +82,25 @@
             android:textColor="@color/colorIcon"
             android:textStyle="bold"
             android:onClick="verSplash"
-            android:contentDescription="Ícone de engrenagem: ajustes" />
+            android:contentDescription="Ícone de engrenagem: ajustes" />-->
+
+        <Button
+            android:id="@+id/button_sobre"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingLeft="50dp"
+            android:gravity="center_vertical|left"
+            android:background="@drawable/button_main"
+            android:drawableLeft="@mipmap/ic_sobre"
+            android:drawablePadding="30dp"
+            android:stateListAnimator="@null"
+            android:text="SOBRE"
+            android:textSize="24sp"
+            android:textColor="@color/colorIcon"
+            android:textStyle="bold"
+            android:onClick="verSobre"
+            android:contentDescription="Ícone de informação: sobre" />
 
     </LinearLayout>
 

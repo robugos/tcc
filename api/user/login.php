@@ -25,6 +25,7 @@ if (isset($_POST['email']) && isset($_POST['senha'])) {
         $response["usuario"]["email"] = utf8_encode($usuario["EMAIL"]);
         $response["usuario"]["criado_em"] = $usuario["CREATED"];
         $response["usuario"]["atualizado_em"] = $usuario["UPDATED"];
+        $response["usuario"]["ativo"] = $usuario["ACTIVE"];
         echo json_encode($response);
     } else {
         // usuario is not found with the credentials
@@ -48,6 +49,7 @@ if (isset($_POST['email']) && isset($_POST['senha'])) {
         $response["usuario"]["email"] = utf8_encode($usuario["EMAIL"]);
         $response["usuario"]["criado_em"] = $usuario["CREATED"];
         $response["usuario"]["atualizado_em"] = $usuario["UPDATED"];
+        $response["usuario"]["ativo"] = $usuario["ACTIVE"];
         echo json_encode($response);
     } else {
         // usuario is not found with the credentials

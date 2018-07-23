@@ -127,6 +127,7 @@ public class TabProgramacaoRec extends Fragment {
             HttpHandler sh = new HttpHandler();
             // Faz request a URL e pega a resposta
             String jsonStr = sh.chamaServico(url+programacao.getUserId());
+            System.out.println("userid: " + programacao.getUserId());
             Log.e(TAG, "Respotas da URL: " + jsonStr);
             if (jsonStr != null){
                 try {
@@ -181,7 +182,7 @@ public class TabProgramacaoRec extends Fragment {
                                 AlertDialog.Builder mBuilder = new AlertDialog.Builder(getActivity());
                                 mBuilder.setIcon(android.R.drawable.ic_dialog_alert);
                                 mBuilder.setTitle("Editar interesses");
-                                mBuilder.setMessage("Você ainda não possui nenhum interesse selecionado. Deseja editar a lista de interesses para filtrar os resultados?");
+                                mBuilder.setMessage("Não foram encontrados eventos baseados nos seus interesses. Gostaria de editá-los para encontrar mais eventos?");
                                 mBuilder.setIcon(0);
                                 mBuilder.setPositiveButton("Sim", new DialogInterface.OnClickListener()
                                 {

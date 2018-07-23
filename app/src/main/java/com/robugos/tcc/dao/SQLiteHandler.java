@@ -34,6 +34,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     private static final String KEY_EMAIL = "email";
     private static final String KEY_UID = "uid";
     private static final String KEY_CRIADO_EM = "criado_em";
+    private static final String KEY_ATIVO = "ativo";
 
     public SQLiteHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -43,7 +44,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String CREATE_LOGIN_TABLE = "CREATE TABLE " + TABLE_USER + "("
-                + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_NOME + " TEXT," + KEY_SOBRENOME + " TEXT," + KEY_EMAIL + " TEXT UNIQUE," + KEY_UID + " TEXT," + KEY_CRIADO_EM + " TEXT" + ")";
+                + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_NOME + " TEXT," + KEY_SOBRENOME + " TEXT," + KEY_EMAIL + " TEXT UNIQUE," + KEY_UID + " TEXT," + KEY_CRIADO_EM + " TEXT," + KEY_ATIVO + " TEXT" + ")";
         db.execSQL(CREATE_LOGIN_TABLE);
 
         Log.d(TAG, "Tabelas do DB criadas.");
@@ -79,12 +80,58 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         Log.d(TAG, "Novo usuario inserido no sqlite: " + id);
     }
 
+    public void addUser(String nome, String sobrenome, String email, String uid, String criado_em, String ativo) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_NOME, nome); // Name
+        values.put(KEY_SOBRENOME, sobrenome); // Surname
+        values.put(KEY_EMAIL, email); // Email
+        values.put(KEY_UID, uid); // Unique ID
+        values.put(KEY_CRIADO_EM, criado_em); // Created At
+        values.put(KEY_ATIVO, ativo); // Active
+
+        // Inserting Row
+        long id = db.insert(TABLE_USER, null, values);
+        db.close(); // Closing database connection
+
+        Log.d(TAG, "Novo usuario inserido no sqlite: " + id);
+    }
+
     public void updateUser(String uid, String nome, String sobrenome) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(KEY_NOME, nome); // Name
-        values.put(KEY_SOBRENOME, sobrenome); // Name
+        values.put(KEY_SOBRENOME, sobrenome); // Surname
+
+        // Inserting Row
+        long id = db.update(TABLE_USER, values, "uid = '"+uid+"'", null);
+        db.close(); // Closing database connection
+
+        Log.d(TAG, "Usuario atualizado no sqlite: " + id);
+    }
+
+    public void updateUser(String uid, String nome, String sobrenome, String ativo) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_NOME, nome); // Name
+        values.put(KEY_SOBRENOME, sobrenome); // Surname
+        values.put(KEY_ATIVO, ativo); // Active
+
+        // Inserting Row
+        long id = db.update(TABLE_USER, values, "uid = '"+uid+"'", null);
+        db.close(); // Closing database connection
+
+        Log.d(TAG, "Usuario atualizado no sqlite: " + id);
+    }
+
+    public void updateUser(String uid, String ativo) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_ATIVO, ativo); // Active
 
         // Inserting Row
         long id = db.update(TABLE_USER, values, "uid = '"+uid+"'", null);
@@ -111,6 +158,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
             user.put("email", cursor.getString(3));
             user.put("uid", cursor.getString(4));
             user.put("criado_em", cursor.getString(5));
+            user.put("ativo", cursor.getString(6));
         }
         cursor.close();
         db.close();

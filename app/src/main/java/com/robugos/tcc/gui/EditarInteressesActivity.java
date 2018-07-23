@@ -2,9 +2,7 @@ package com.robugos.tcc.gui;
 
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -43,7 +41,7 @@ public class EditarInteressesActivity extends AppCompatActivity {
     private static String userId;
     private SQLiteHandler db = new SQLiteHandler(this);
 
-    @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
+//    @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,7 +55,7 @@ public class EditarInteressesActivity extends AppCompatActivity {
     }
 
     //Classe AsyncTask para pegar jSON chamando HTTP
-    @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
+//    @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
     private class GetInteresses extends AsyncTask<Void, Void, Void> {
         @Override
         protected void onPreExecute(){
@@ -66,7 +64,7 @@ public class EditarInteressesActivity extends AppCompatActivity {
             pDialog = new ProgressDialog(EditarInteressesActivity.this);
             pDialog.setMessage("Aguarde");
             pDialog.setCancelable(false);
-            pDialog.show();
+//            pDialog.show();
         }
 
         @Override
@@ -88,14 +86,15 @@ public class EditarInteressesActivity extends AppCompatActivity {
                         JSONObject interest = interesses.getJSONObject(i);
                         String id = interest.getString("id");
                         String nome = interest.getString("nome");
-                        String categoria = interest.getString("categoria");
+                        //String categoria = interest.getString("categoria");
 
-                        itens.add(id+";"+nome+";"+categoria);
+                        //itens.add(id+";"+nome+";"+categoria);
+                        itens.add(id+";"+nome);
                     }
                     String valores = jsonObj.getString("userinteresses");
-                    valores = valores.substring(1, valores.length()-1).replaceAll(" ","");
+                    System.out.println("valores: " + valores);
+                    valores = valores.substring(1, valores.length() - 1).replaceAll(" ", "");
                     parts = valores.split(",");
-
                 } catch (final JSONException e){
                     Log.e(TAG, "Erro do JSON parsing: " + e.getMessage());
                     runOnUiThread(new Runnable() {
@@ -197,7 +196,9 @@ public class EditarInteressesActivity extends AppCompatActivity {
                         JSONObject jObj = new JSONObject(response);
                         boolean error = jObj.getBoolean("error");
                         if (!error) {
+                            db.updateUser(userId, "1");
                             Toast.makeText(getApplicationContext(), "Interesses salvos", Toast.LENGTH_LONG).show();
+                            finish();
                         } else {
                             String errorMsg = jObj.getString("error_msg");
                             Toast.makeText(getApplicationContext(), errorMsg, Toast.LENGTH_LONG).show();

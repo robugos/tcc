@@ -238,13 +238,51 @@ function updateName($table = 'USER', $uid = NULL, $nome = NULL, $sobrenome = NUL
     $found    = null;
     try {
         if ($uid) {
-            $sql    = "SELECT uid, id FROM " . $table . " WHERE unique_id = '" . $uid . "'";
-            $result = $database->query($sql);
-            if ($result->num_rows > 0) {
-                $found              = $result->fetch_assoc();
-                $id                 = $found['ID'];
+            //$sql    = "SELECT uid, id FROM " . $table . " WHERE unique_id = '" . $uid . "'";
+            //$result = $database->query($sql);
+            //if ($result->num_rows > 0) {
+	    $id = getIdByUid('USER', $uid);
+            if ($id){
+                //$found              = $result->fetch_assoc();
+                //$id                 = $found['ID'];
                 $usuario['NAME']    = $nome;
                 $usuario['SURNAME'] = $sobrenome;
+                $usuario['UPDATED'] = $today->format("Y-m-d H:i:s");
+                update('USER', $id, $usuario);
+                if ($_SESSION['type'] == 'success') {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+    catch (Exception $e) {
+        $_SESSION['message'] = $e->GetMessage();
+        $_SESSION['type']    = 'danger';
+    }
+    close_database($database);
+    return $found;
+}
+
+function updateActive($table = 'USER', $uid = NULL, $ativo = NULL){
+    $today    = date_create('now', new DateTimeZone('America/Sao_Paulo'));
+    $database = open_database();
+    $found    = null;
+    try {
+        if ($uid) {
+            //$sql    = "SELECT uid, id FROM " . $table . " WHERE unique_id = '" . $uid . "'";
+            //$result = $database->query($sql);
+            $id = getIdByUid('USER', $uid);
+            //if ($result->num_rows > 0) {
+            if ($id) {
+                //$found              = $result->fetch_assoc();
+                //$id                 = $found['ID'];
+                $usuario['ACTIVE']    = $ativo;
                 $usuario['UPDATED'] = $today->format("Y-m-d H:i:s");
                 update('USER', $id, $usuario);
                 if ($_SESSION['type'] == 'success') {
@@ -280,6 +318,7 @@ function updateInterest($table = 'USER', $uid = NULL, $interesses = NULL){
                 $id                   = $found['ID'];
                 $usuario['INTERESTS'] = $interesses;
                 $usuario['UPDATED']   = $today->format("Y-m-d H:i:s");
+                $usuario['ACTIVE']   = 1;
                 update('USER', $id, $usuario);
                 if ($_SESSION['type'] == 'success') {
                     return true;
@@ -304,7 +343,7 @@ function updateInterest($table = 'USER', $uid = NULL, $interesses = NULL){
 function getInterests() {
   $database = open_database();
   $found    = null;
-            $sql    = "SELECT * FROM GENRE";
+            $sql    = "SELECT * FROM CATEGORY";
             $result = $database->query($sql);
             if ($result->num_rows > 0) {
                 //$found     = $result->fetch_assoc();

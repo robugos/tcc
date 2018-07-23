@@ -16,8 +16,20 @@ public class Evento implements Serializable {
     private String urlimg;
     private String adimg;
     private String nota;
+    private String tipo;
 
-    public Evento(String id, String nome, String local, String data, String descricao, String urlimg, String adimg, String nota){
+//    public Evento(String id, String nome, String local, String data, String descricao, String urlimg, String adimg, String nota){
+//        setId(id);
+//        setNome(nome);
+//        setLocal(local);
+//        setData(data);
+//        setDescricao(descricao);
+//        setUrlimg(urlimg);
+//        setAdimg(adimg);
+//        setNota(nota);
+//    }
+
+    public Evento(String id, String nome, String local, String data, String descricao, String urlimg, String adimg, String nota, String tipo){
         setId(id);
         setNome(nome);
         setLocal(local);
@@ -26,6 +38,7 @@ public class Evento implements Serializable {
         setUrlimg(urlimg);
         setAdimg(adimg);
         setNota(nota);
+        setTipo(tipo);
     }
 
     public Evento(String id, String nome, String local, String data, String nota){
@@ -119,4 +132,13 @@ public class Evento implements Serializable {
     public void setNota(String nota) {
         this.nota = nota;
     }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
 }

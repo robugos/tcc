@@ -31,12 +31,13 @@ if (isset($_POST['nome']) && isset($_POST['sobrenome']) && isset($_POST['email']
             $usuario['EMAIL'] = $email;
             $password = $senha;
             $usuario['PHOTO'] = "";
-            $usuario['INTERESTS'] = "";
+            $usuario['INTERESTS'] = "[]";
             $usuario['UNIQUE_ID'] = uniqid('', true);
             $hash = hashSSHA($password);
             $usuario['ENCRIPTED_PASS'] = $hash["encrypted"]; // senha encriptada
             $usuario['SALT'] = $hash["salt"]; // salt
             $usuario['UPDATED'] = $usuario['CREATED'] = $today->format("Y-m-d H:i:s");
+            $usuario['ACTIVE'] = 0;
 
             save('USER', $usuario);
             if ($_SESSION['type'] == 'success') {
@@ -48,6 +49,7 @@ if (isset($_POST['nome']) && isset($_POST['sobrenome']) && isset($_POST['email']
                 $response["usuario"]["email"] =  utf8_decode($usuario["EMAIL"]);
                 $response["usuario"]["criado_em"] =  utf8_decode($usuario["CREATED"]);
                 $response["usuario"]["atualizado_em"] =  utf8_decode($usuario["UPDATED"]);
+                $response["usuario"]["ativo"] =  utf8_decode($usuario["ACTIVE"]);
                 echo json_encode($response);
             } else {
                 // falha ao salvar usuario

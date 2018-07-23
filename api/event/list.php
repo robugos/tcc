@@ -30,6 +30,11 @@ if ($eventos) {
         $lista[$i]["urlimg"] = $evento["COVER"];
         $lista[$i]["adimg"] = $evento["NAME"];
         $lista[$i]["categoria"] = $evento["CATEGORY"];
+        //$lista[$i]["tipo"] = $evento["TYPE"];
+        $type = getTypeById('TYPE', $evento["TYPE"]);
+        if ($type) {
+        	$lista[$i]["tipo"] = $type["NAME"];
+        }
         $lista[$i]["intersecao"] = $evento["intersecao"];
         $lista[$i]["peso"] = $evento["peso"];
         if($uid){

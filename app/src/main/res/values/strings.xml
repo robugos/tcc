@@ -28,10 +28,7 @@
     <string name="title_activity_historico">Histórico</string>
 
     <!-- Strings related to Settings -->
-    <string name="menu_perfil_nome">Editar nome</string>
-    <string name="menu_perfil_nome">Editar local</string>
-    <string name="menu_perfil_nome">Alterar senha</string>
-    <string name="menu_perfil_nome">Editar interesses</string>
+
     <!-- Example General settings -->
     <string name="pref_header_general">General</string>
 
@@ -111,4 +108,5 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_sobre">SobreActivity</string>
 </resources>

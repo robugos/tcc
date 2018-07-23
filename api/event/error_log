@@ -68,3 +68,4 @@
 [20-Jul-2018 20:39:49 America/Chicago] PHP Warning:  Illegal string offset 'cover' in /home/robug851/public_html/tcc/api/event/event.php on line 25
 [20-Jul-2018 20:39:49 America/Chicago] PHP Warning:  Illegal string offset 'name' in /home/robug851/public_html/tcc/api/event/event.php on line 26
 [20-Jul-2018 20:39:49 America/Chicago] PHP Fatal error:  Call to a member function getAVGNote() on a non-object in /home/robug851/public_html/tcc/api/event/event.php on line 35
+[22-Jul-2018 14:43:25 America/Chicago] PHP Parse error:  syntax error, unexpected '}' in /home/robug851/public_html/tcc/api/event/list.php on line 20

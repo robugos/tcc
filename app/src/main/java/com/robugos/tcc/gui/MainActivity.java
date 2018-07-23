@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         HashMap<String, String> user = db.getUserDetails();
 
         final String nome = user.get("nome");
+        final String ativo = user.get("ativo");
         idUser = user.get("uid");
         /*TextView perfilText = (TextView) findViewById(R.id.welcome_user);
         perfilText.setText(mensagemBoasVindas()+", "+nome+"!");*/
@@ -54,12 +56,27 @@ public class MainActivity extends AppCompatActivity {
         Button btnPerfil = (Button) findViewById(R.id.button_perfil);
         Button btnProgramacao = (Button) findViewById(R.id.button_programacao);
         Button btnHistorico = (Button) findViewById(R.id.button_historico);
-        Button btnConfig = (Button) findViewById(R.id.button_config);
+//        Button btnConfig = (Button) findViewById(R.id.button_config);
+        Button btnSobre = (Button) findViewById(R.id.button_sobre);
 
         btnPerfil.setTypeface(typeface);
         btnProgramacao.setTypeface(typeface);
         btnHistorico.setTypeface(typeface);
-        btnConfig.setTypeface(typeface);
+        //btnConfig.setTypeface(typeface);
+        btnSobre.setTypeface(typeface);
+
+        System.out.println("ativo: " + ativo);
+
+        if (ativo.equals("0")){
+            Handler handle = new Handler();
+            handle.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Intent intent = new Intent(MainActivity.this, EditarInteressesActivity.class);
+                    startActivity(intent);
+                }
+            }, 1000);
+        }
     }
 
     public SessionManager getSession(){
@@ -127,6 +144,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void verHistorico(View view){
         Intent intent = new Intent(this, HistoricoActivity.class);
+        startActivity(intent);
+    }
+
+    public void verSobre(View view){
+        Intent intent = new Intent(this, SobreActivity.class);
         startActivity(intent);
     }
 

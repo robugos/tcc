@@ -65,6 +65,28 @@ function getEventsByUser($table = 'EVENT', $uid = NULL, $userinteresses = NULL) 
     return $found;
 }
 
+function getTypeById($table = 'TYPE', $id = NULL) {
+
+$database = open_database();
+    $found    = null;
+    try {
+            $sql    = "SELECT * FROM " . $table . " WHERE id = '". $id ."'";
+            $result = $database->query($sql);
+            if ($result->num_rows > 0) {
+                $found     = $result->fetch_assoc();
+            }
+
+    close_database($database);
+    return $found;
+    }
+    catch (Exception $e) {
+        $_SESSION['message'] = $e->GetMessage();
+        $_SESSION['type']    = 'danger';
+    }
+    close_database($database);
+    return $found;
+    }
+
 function getEventById($table = 'EVENT', $id = null) {
 	$database = open_database();
 	$found    = null;
@@ -126,9 +148,16 @@ function getRating($table = 'RATE', $id = NULL, $evento = NULL) {
     }
 
 function updateRating($table = 'RATE', $id = NULL, $evento = NULL, $nota = NULL) {
+	$today     = date_create('now', new DateTimeZone('America/Sao_Paulo'));
 	$database = open_database();
 	$found = null;
 	try {
+		$historic['ID_USER'] = $id;
+		$historic['ID_EVENT'] = $evento;
+		$historic['RATE'] = $nota;
+		$historic['CREATED'] = $historic['UPDATED'] = $today->format("Y-m-d H:i:s");
+		save('HISTORIC', $historic);
+		
 		$rate = getRating($table, $id, $evento);
 		if ($rate && $nota) {
 			$rate['RATE'] = $nota;

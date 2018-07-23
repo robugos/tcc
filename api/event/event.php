@@ -20,6 +20,10 @@ if ($evento) {
         $lista[$i]["descricao"] = $evento["DESCRIPTION"];
         $lista[$i]["urlimg"] = $evento["COVER"];
         $lista[$i]["adimg"] = $evento["NAME"];
+        $type = getTypeById('TYPE', $evento["TYPE"]);
+        if ($type) {
+        	$lista[$i]["tipo"] = $type["NAME"];
+        }
         
         if($uid){
                 $unique = getIdByUid('USER', $uid);
