@@ -79,6 +79,17 @@ public class HistoricoActivity extends AppCompatActivity {
                     //Pega Array node do JSON
                     JSONArray eventos = jsonObj.getJSONArray("eventos");
 
+                    if (eventos.length()==0){
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(getApplicationContext(),
+                                        "Nenhum evento avaliado ainda", Toast.LENGTH_LONG)
+                                        .show();
+                            }
+                        });
+                    }
+
                     for (int i = 0; i < eventos.length(); i++){
                         JSONObject eve = eventos.getJSONObject(i);
                         String id = eve.getString("id");

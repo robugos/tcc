@@ -9,6 +9,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -48,11 +49,11 @@ public class CreateUserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_createuser);
 
-        TextView nomeText = (TextView) findViewById(R.id.nomeUsuario);
-        TextView sobrenomeText = (TextView) findViewById(R.id.sobrenomeUsuario);
-        TextView emailText = (TextView) findViewById(R.id.email);
-        TextView senhaText = (TextView) findViewById(R.id.password);
-        TextView confirmasenhaText = (TextView) findViewById(R.id.passwordConfirm);
+        EditText nomeText = (EditText) findViewById(R.id.nomeUsuario);
+        EditText sobrenomeText = (EditText) findViewById(R.id.sobrenomeUsuario);
+        EditText emailText = (EditText) findViewById(R.id.email);
+        EditText senhaText = (EditText) findViewById(R.id.password);
+        EditText confirmasenhaText = (EditText) findViewById(R.id.passwordConfirm);
         final List<TextView> usuario = new ArrayList<>();
         usuario.add(nomeText);
         usuario.add(sobrenomeText);

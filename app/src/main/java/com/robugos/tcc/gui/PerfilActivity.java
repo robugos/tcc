@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -63,11 +64,13 @@ public class PerfilActivity extends AppCompatActivity {
 //    @RequiresApi(api = Build.VERSION_CODES.DONUT)
     public void editarNome(View view){
         View mView = getLayoutInflater().inflate(R.layout.alertdialog_editar_nome, null);
-        final TextView nomeDialog = (TextView) mView.findViewById(R.id.nomeUsuario);
+        final EditText nomeDialog = (EditText) mView.findViewById(R.id.nomeUsuario);
         nomeDialog.setText(db.getUserDetails().get("nome"));
+        nomeDialog.setSelection(nomeDialog.getText().length());
         nomeDialog.setContentDescription("Nome: "+nomeDialog.getText());
-        final TextView sobrenomeDialog = (TextView) mView.findViewById(R.id.sobrenomeUsuario);
+        final EditText sobrenomeDialog = (EditText) mView.findViewById(R.id.sobrenomeUsuario);
         sobrenomeDialog.setText(db.getUserDetails().get("sobrenome"));
+        sobrenomeDialog.setSelection(sobrenomeDialog.getText().length());
         sobrenomeDialog.setContentDescription("Sobrenome: "+sobrenomeDialog.getText());
         final List<TextView> usuario = new ArrayList<>();
         usuario.add(nomeDialog);
@@ -88,9 +91,9 @@ public class PerfilActivity extends AppCompatActivity {
 
     public void alterarSenha(View view){
         View mView = getLayoutInflater().inflate(R.layout.alertdialog_alterar_senha, null);
-        final TextView senhaAntigaDialog = (TextView) mView.findViewById(R.id.senhaAntiga);
-        final TextView senhaNovaDialog = (TextView) mView.findViewById(R.id.senhaNova);
-        final TextView confirmaNovaDialog = (TextView) mView.findViewById(R.id.confirmaSenha);
+        final EditText senhaAntigaDialog = (EditText) mView.findViewById(R.id.senhaAntiga);
+        final EditText senhaNovaDialog = (EditText) mView.findViewById(R.id.senhaNova);
+        final EditText confirmaNovaDialog = (EditText) mView.findViewById(R.id.confirmaSenha);
         final List<TextView> usuario = new ArrayList<>();
         usuario.add(senhaAntigaDialog);
         usuario.add(senhaNovaDialog);

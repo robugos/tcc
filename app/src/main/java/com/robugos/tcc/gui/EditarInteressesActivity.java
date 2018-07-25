@@ -62,8 +62,11 @@ public class EditarInteressesActivity extends AppCompatActivity {
             super.onPreExecute();
             //Mostra dialog de progresso
             pDialog = new ProgressDialog(EditarInteressesActivity.this);
+            if (pDialog.isShowing())
+                pDialog.dismiss();
             pDialog.setMessage("Aguarde");
             pDialog.setCancelable(false);
+            pDialog.show();
 //            pDialog.show();
         }
 
@@ -72,6 +75,7 @@ public class EditarInteressesActivity extends AppCompatActivity {
             ArrayList<String> itens = new ArrayList<>();
             String[] parts = {};
             //userId = "592dd7705cf739.39476295";
+            userId = db.getUserDetails().get("uid");
             HttpHandler sh = new HttpHandler();
             // Faz request a URL e pega a resposta
             String jsonStr = sh.chamaServico(url+userId);

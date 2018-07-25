@@ -8,6 +8,7 @@ import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,8 +43,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        final TextView emailText = (TextView) findViewById(R.id.email);
-        final TextView senhaText = (TextView) findViewById(R.id.password);
+        final EditText emailText = (EditText) findViewById(R.id.email);
+        final EditText senhaText = (EditText) findViewById(R.id.password);
 
         final Button loginButton = (Button) findViewById(R.id.email_sign_in_button);
         Button registerButton = (Button) findViewById(R.id.create_account);
@@ -57,7 +58,7 @@ public class LoginActivity extends AppCompatActivity {
         session = new SessionManager(this);
 
         if (session.isLoggedIn()) {
-            checkLogin();
+            //checkLogin();
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
@@ -87,7 +88,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    public void login(final Button loginButton, TextView emailText, TextView senhaText){
+    public void login(final Button loginButton, EditText emailText, EditText senhaText){
         Log.d(TAG, "Login");
 
         if (!validate(loginButton, emailText, senhaText)){
@@ -257,7 +258,7 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setEnabled(true);
     }
 
-    public boolean validate(Button loginButton, TextView emailText, TextView senhaText){
+    public boolean validate(Button loginButton, EditText emailText, EditText senhaText){
         boolean valid = true;
 
         String email = emailText.getText().toString();

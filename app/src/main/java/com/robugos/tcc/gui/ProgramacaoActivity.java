@@ -63,6 +63,10 @@ public class ProgramacaoActivity extends AppCompatActivity {
 
     }
 
+    public ViewPager getViewPager(){
+        return mViewPager;
+    }
+
     public void onBackPressed(){
         finish();
     }
